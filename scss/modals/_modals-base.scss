@@ -1,0 +1,153 @@
+/* ------------------- Modal -------------------- */
+
+// Цвет затемнения
+$modal-overlay: rgba(0, 0, 0, 0.6);
+
+// Стили для .modals__content
+$modal-bg: #fff;
+$modal-radius: 15px;
+$modal-pading: 30px 40px;
+
+// Стили модального окна
+.modals {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s;
+  pointer-events: none;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: $modal-overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 390px;
+    max-height: 90%;
+    margin: auto;
+    overflow: auto;
+    background: $modal-bg;
+    border-radius: $modal-radius;
+    padding: $modal-pading;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    box-shadow: 0px 30px 50px rgb(0 0 0 / 25%);
+    transform: translateY(-50px);
+  }
+
+  &__close {
+    cursor: pointer;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBpZD0iOWNkNDcwNWUiIGQ9Ik03IDUuNzE1NTRMMTIuNzE1NSAwTDE0IDEuMjg0NDZMOC4yODQ0NiA3TDE0IDEyLjcxNTVMMTIuNzE1NSAxNEw3IDguMjg0NDZMMS4yODQ0NiAxNEwwIDEyLjcxNTVMNS43MTU1NCA3TDAgMS4yODQ0NkwxLjI4NDQ2IDBMNyA1LjcxNTU0WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4zIj48L3BhdGg+Cjwvc3ZnPg==");
+    background-size: cover;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+    z-index: 20;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__header {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+
+    &-title {
+      text-align: center;
+      font-family: $font_title;
+      font-size: 28px;
+      line-height: 120%;
+      color: #333;
+    }
+
+    &-descr {
+      font-family: $font_main;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.4;
+      margin-top: clamp(0rem, -1rem + 5vw, 0.7rem);
+      color: rgba(#000, 0.6);
+    }
+  }
+
+  &__footer {
+    margin-top: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  .privacy-policy {
+    margin-top: 20px;
+  }
+
+  // Открытое модальное окно
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    .modals__content {
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .modals__close {
+    width: 16px;
+    height: 16px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .modals__content {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 375px) {
+  .modals__header {
+    margin-bottom: 20px;
+  }
+
+  .modals__header-title {
+    font-size: 28px !important;
+  }
+
+  .modals__header-descr {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .modals input {
+    height: 45px !important;
+  }
+}
+
+.modals-success {
+  .modals__content {
+    padding: 30px;
+  }
+}

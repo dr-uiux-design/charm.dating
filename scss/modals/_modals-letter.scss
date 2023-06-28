@@ -1,0 +1,33 @@
+.modals-letter {
+  .modals__content {
+    max-width: 480px;
+    background: #fff;
+    border-radius: 15px;
+  }
+
+  .letter-message {
+    width: 100% !important;
+    height: 120px;
+    box-sizing: border-box;
+    padding: 0 15px;
+    padding-top: 15px;
+    resize: none;
+    margin-right: 0;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .modals-letter__body {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modals-letter .modals__header {
+    margin-top: 10px;
+  }
+}
